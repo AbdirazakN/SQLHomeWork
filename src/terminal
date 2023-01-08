@@ -1,0 +1,25 @@
+    #1
+CREATE TABLE instructor (
+  ID CHAR(5),
+  name VARCHAR(20) NOT NULL,
+  dept_name VARCHAR(20),
+  salary NUMERIC(8,2),
+  PRIMARY KEY (ID),
+  FOREIGN KEY (dept_name) REFERENCES department(dept_name)
+);
+INSERT INTO instructor(name,dept_name,salary)
+VALUES ('Baatyr','Baatyr',5);
+    #2
+CREATE TABLE products
+(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,
+    count INT,
+    price INT
+);
+INSERT INTO products(name, count, price)
+VALUES ('Телевизор',3,43200.00),
+('Микроволновая печь',4,3200.00),
+('Холодильник',	3,12000.00),
+('Роутер',1,1340.00),
+('Компьютер',0,26150.00);

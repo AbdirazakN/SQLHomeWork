@@ -1,0 +1,88 @@
+    #1
+CREATE TABLE mentors
+(
+    id          SERIAL PRIMARY KEY,
+    name        VARCHAR,
+    surname     VARCHAR,
+    age         INT,
+    position_id INT REFERENCES position (id)
+);
+CREATE TABLE position
+(
+    id   SERIAL PRIMARY KEY,
+    name VARCHAR
+);
+INSERT INTO position(name)
+VALUES ('Java mentor'),
+       ('JS mentor');
+drop table mentors;
+INSERT INTO mentors(name, surname, age, position_id)
+VALUES ('Akylbek', 'Jolchuev', 18, 1),
+       ('Abdullah', 'Barsbek uulu', 20, 2),
+       ('Kurmanjan', 'Datka kyzy', 17, 1),
+       ('Kurban', 'Alimbekov', 22, 2);
+
+    #2
+CREATE TABLE country
+(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR
+);
+CREATE TABLE cars
+(
+    id SERIAL PRIMARY KEY,
+    company VARCHAR,
+    model VARCHAR,
+    year INT,
+    сountry_of_origin INT REFERENCES country(id)
+);
+INSERT INTO country(name)
+VALUES ('Japan'),
+       ('Korea'),
+       ('USA'),
+       ('China');
+INSERT INTO cars(company,model, year, сountry_of_origin)
+VALUES ('Toyota','Camry 70',2022,1),
+       ('KIA','K5',2020,2),
+       ('BMW','i820',2021,1),
+       ('Tesla','Model X',2022,3);
+
+    #3
+CREATE TABLE gender
+(
+    id SERIAL PRIMARY KEY,
+    gender VARCHAR UNIQUE
+);
+CREATE TABLE tourists
+(
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR NOT NULL ,
+    last_name VARCHAR NOT NULL ,
+    phone_number VARCHAR UNIQUE,
+    country VARCHAR,
+    gender VARCHAR REFERENCES gender(gender)
+);
+INSERT INTO gender(gender)
+VALUES ('male'),
+       ('female');
+INSERT INTO tourists(first_name, last_name, phone_number, country, gender)
+VALUES ('Alisa','Dicaprio','+1777112233','USA','female'),
+       ('Aktan','Seitek uulu','+996222202020','Kyrgyzstan','male'),
+       ('Alesha','Sergeev','+7977123456','USA','male');
+
+    #4
+CREATE TABLE laptop
+(
+    id SERIAL PRIMARY KEY,
+    brand VARCHAR NOT NULL ,
+    model VARCHAR UNIQUE ,
+    made_in VARCHAR,
+    memory INT NOT NULL ,
+    colour VARCHAR,
+    ram INT
+);
+INSERT INTO laptop(brand, model, made_in, memory, colour, ram)
+VALUES ('Lenovo','SN9 5500','India',512,'Black',12),
+       ('Samsung','Galaxy Ultra','Korea',845,'Gray',8),
+       ('Apple','Macbook Air','USA',1024,'White',16),
+       ('Acer','ACX-512','China',256,'Blue',6);

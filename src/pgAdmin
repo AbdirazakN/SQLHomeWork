@@ -1,0 +1,54 @@
+    #1
+CREATE TABLE library(
+id SERIAL PRIMARY KEY,
+name VARCHAR,
+address VARCHAR,
+city VARCHAR
+);
+INSERT INTO library(name,address,city)
+VALUES ('Danek books','Kiev st. 96','Bishkek'),
+('National library','J.Abrakhmanov st. 158','Bishkek'),
+('Osh State library','K.Datka st. 25','Osh');
+
+select * from library;
+
+    #2
+CREATE TABLE books(
+id SERIAL PRIMARY KEY,
+name VARCHAR(30) UNIQUE,
+author VARCHAR(30) UNIQUE,
+year INTEGER,
+genre VARCHAR(18) NOT NULL
+);
+INSERT INTO books(name,author,year,genre)
+VALUES('1001 факт','Суймонкул Раатбек',2021,'Анык маалыматтар'),
+('Тынчтыктын жарчысы','Баатырбек Азирет уулу',2016,'Диний'),
+('Бейиш жолу','Абдишукур Нарматов',2017,'Диний');
+
+select * from books;
+
+    #3
+CREATE TABLE tourneys (
+name varchar(30),
+wins real,
+best real,
+size real
+);
+INSERT INTO tourneys (name, wins, best, size)
+VALUES ('Dolly', '7', '245', '8.5'),
+('Etta', '4', '283', '9'),
+('Irma', '9', '266', '7'),
+('Barbara', '2', '197', '7.5'),
+('Gladys', '13', '273', '8');
+
+select * from tourneys;
+
+    #4
+CREATE TABLE USERS (
+  id INT PRIMARY KEY NOT NULL,
+  name VARCHAR (20) NOT NULL
+);
+INSERT INTO USERS(id,name)
+VALUES(123,'Person'),
+(456,'Bakyt00');
+select * from users;
