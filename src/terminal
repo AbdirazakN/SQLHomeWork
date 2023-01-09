@@ -23,3 +23,15 @@ VALUES ('Телевизор',3,43200.00),
 ('Холодильник',	3,12000.00),
 ('Роутер',1,1340.00),
 ('Компьютер',0,26150.00);
+    #3
+CREATE TABLE banks(
+id SERIAL PRIMARY KEY,
+name VARCHAR NOT NULL,
+region VARCHAR UNIQUE,
+course_dollar INT
+);
+INSERT INTO banks(name,region,course)
+VALUES ('KICB','Batken',84.12),
+('DosCredobank','Osh',83.82),
+('BakaiBank','Bishkek',84.92);
+select * from banks;
